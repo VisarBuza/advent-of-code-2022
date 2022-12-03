@@ -16,7 +16,7 @@ defmodule AdventOfCode.Day02 do
     |> Enum.filter(fn line -> line != "" end)
     |> Enum.map(&(String.trim(&1) |> String.split(" ")))
     |> Enum.map(fn [first, second] -> [mapping[first], mapping[second]] end)
-    |> Enum.map(&calculateScore(&1))
+    |> Enum.map(&calculate_score(&1))
     |> Enum.sum()
   end
 
@@ -36,12 +36,12 @@ defmodule AdventOfCode.Day02 do
     |> String.split("\n")
     |> Enum.filter(fn line -> line != "" end)
     |> Enum.map(&(String.trim(&1) |> String.split(" ")))
-    |> Enum.map(&selectMove(&1, mapping))
-    |> Enum.map(&calculateScore(&1))
+    |> Enum.map(&select_move(&1, mapping))
+    |> Enum.map(&calculate_score(&1))
     |> Enum.sum()
   end
 
-  defp selectMove([opponent, me], mapping) do
+  defp select_move([opponent, me], mapping) do
     lose = %{
       :rock => :paper,
       :paper => :scissors,
@@ -58,7 +58,7 @@ defmodule AdventOfCode.Day02 do
     end
   end
 
-  defp calculateScore([oponnent, me]) do
+  defp calculate_score([oponnent, me]) do
     score = %{:rock => 1, :paper => 2, :scissors => 3}
     score[me] +
       case [oponnent, me] do
