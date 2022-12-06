@@ -3,12 +3,12 @@ defmodule AdventOfCode.Day06 do
     input =
       AdventOfCode.Input.get!(6)
       |> String.split("", trim: true)
-      |> Enum.chunk_every(4, 1)
+      |> Enum.chunk_every(4, 1, :discard)
 
     { _, index } =
       input
       |> Enum.zip(0..length(input))
-      |> Enum.filter(fn {chars, _} -> length(chars) == MapSet.size(MapSet.new(chars)) end)
+      |> Enum.filter(fn {chars, _} -> length(chars) == MapSet.new(chars) |> MapSet.size end)
       |> List.first()
 
     index + 4
@@ -18,12 +18,12 @@ defmodule AdventOfCode.Day06 do
     input =
       AdventOfCode.Input.get!(6)
       |> String.split("", trim: true)
-      |> Enum.chunk_every(14, 1)
+      |> Enum.chunk_every(14, 1, :discard)
 
     {_, index} =
       input
       |> Enum.zip(0..length(input))
-      |> Enum.filter(fn {chars, _} -> length(chars) == MapSet.size(MapSet.new(chars)) end)
+      |> Enum.filter(fn {chars, _} -> length(chars) == MapSet.new(chars) |> MapSet.size end)
       |> List.first()
 
     index + 14
