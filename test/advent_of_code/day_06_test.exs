@@ -5,17 +5,17 @@ defmodule AdventOfCode.Day06Test do
 
   @tag :skip
   test "part1" do
-    input = nil
+    input =  "mjqjpqmgbljsphdztnvjfqwrcgsmlb"
     result = part1(input)
 
-    assert result
+    assert result = 7
   end
 
   @tag :skip
   test "part2" do
-    input = nil
+    input =  "mjqjpqmgbljsphdztnvjfqwrcgsmlb"
     result = part2(input)
 
-    assert result
+    assert result = 19
   end
 end
